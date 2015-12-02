@@ -1,15 +1,21 @@
 body {
-  background: #fff;
+  background: #fafafa;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
 
 h1,h2,h3{
-	color:#F11335;
+	color:#272356;
+	margin:16px 0 8px;
+	display: block;
 }
 
 h2:first-child{
 	margin-top: 0
+}
+
+h3{
+	font-weight: normal;
 }
 
 .app-name{
@@ -48,7 +54,7 @@ h2:first-child{
 }
 
 #drawer #mainContainer, #drawerToolbar{
-	background-color:#fafafa;
+	background-color:#fff;
 }
 
 #drawerToolbar{
@@ -69,18 +75,16 @@ paper-item::after, paper-item::before{
 	background:#3EC6F5 !important;
 }
 
-.focused::before{
+paper-menu .focused::before{
 	background:#3EC6F5;
-	position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     opacity: 0.24;
     display: block;
+    position: absolute;
+    left:0;
     content: '';
     pointer-events: none;
     height:48px;
+    width: 100%
 }
 
 iron-pages{
@@ -88,6 +92,9 @@ iron-pages{
 }
 
 @media (max-width: 700px) {
+	.content *{
+		font-size: 99%;
+	}
 	.app-name{
 		font-size: 2em !important;
 	}
@@ -95,6 +102,42 @@ iron-pages{
 		font-size: 1.5em;
 	}
 }
+
+paper-button{
+	margin: 0;
+}
+
+paper-button.primary, paper-button.btn-primary, paper-button[primary] { color: #127DC1; }
+paper-button.primary[raised], paper-button.btn-primary[raised], paper-button[primary][raised] { background-color: #127DC1; color: #fff; }
+paper-button.secondary, paper-button.btn-secondary, paper-button[secondary] { color: #80cbc4; }
+paper-button.secondary[raised], paper-button.btn-secondary[raised], paper-button[secondary][raised] { background-color: #80cbc4; color: #fff; }
+paper-button.success, paper-button.btn-success, paper-button[success] { color: #9dc56e; }
+paper-button.success[raised], paper-button.btn-success[raised], paper-button[success][raised] { background-color: #9dc56e; color: #fff; }
+paper-button.info, paper-button.btn-info, paper-button[info] { color: #ffb74d; }
+paper-button.info[raised], paper-button.btn-info[raised], paper-button[info][raised] { background-color: #ffb74d; color: #fff; }
+paper-button.warning, paper-button.btn-warning, paper-button[warning] { color: #fadd60; }
+paper-button.warning[raised], paper-button.btn-warning[raised], paper-button[warning][raised] { background-color: #fadd60; color: #fff; }
+paper-button.error, paper-button.btn-error, paper-button[error] { color: #ef5350; }
+paper-button.error[raised], paper-button.btn-error[raised], paper-button[error][raised] { background-color: #ef5350; color: #fff; }
+paper-button.link, paper-button.btn-link, paper-button[link] { text-decoration: underline; }
+paper-button[raised] { color: #fff; }
+paper-button[disabled] { color: #313238 !important; background: #afb1b9 !important; }
+
+paper-icon-button.primary, paper-icon-button.btn-primary, paper-icon-button[primary] { color: #127DC1; }
+paper-icon-button.primary:hover, paper-icon-button.btn-primary:hover, paper-icon-button[primary]:hover { background-color: #ecf1f5; background-color: rgba(68, 110, 155, 0.2); border-radius: 50%; }
+paper-icon-button.secondary, paper-icon-button.btn-secondary, paper-icon-button[secondary] { color: #80cbc4; }
+paper-icon-button.secondary:hover, paper-icon-button.btn-secondary:hover, paper-icon-button[secondary]:hover { background-color: #f2faf9; background-color: rgba(128, 203, 196, 0.2); border-radius: 50%; }
+paper-icon-button.success, paper-icon-button.btn-success, paper-icon-button[success] { color: #9dc56e; }
+paper-icon-button.success:hover, paper-icon-button.btn-success:hover, paper-icon-button[success]:hover { background-color: #f5f9f1; background-color: rgba(157, 197, 110, 0.2); border-radius: 50%; }
+paper-icon-button.info, paper-icon-button.btn-info, paper-icon-button[info] { color: #ffb74d; }
+paper-icon-button.info:hover, paper-icon-button.btn-info:hover, paper-icon-button[info]:hover { background-color: #fff8ed; background-color: rgba(255, 183, 77, 0.2); border-radius: 50%; }
+paper-icon-button.warning, paper-icon-button.btn-warning, paper-icon-button[warning] { color: #fadd60; }
+paper-icon-button.warning:hover, paper-icon-button.btn-warning:hover, paper-icon-button[warning]:hover { background-color: #fffcef; background-color: rgba(250, 221, 96, 0.2); border-radius: 50%; }
+paper-icon-button.error, paper-icon-button.btn-error, paper-icon-button[error] { color: #ef5350; }
+paper-icon-button.error:hover, paper-icon-button.btn-error:hover, paper-icon-button[error]:hover { background-color: #fdeeee; background-color: rgba(239, 83, 80, 0.2); border-radius: 50%; }
+
+
+
 
 
 

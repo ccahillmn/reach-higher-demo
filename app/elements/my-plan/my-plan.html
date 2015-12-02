@@ -1,0 +1,211 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="my-plan">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      fieldset{
+        border:1px solid;
+        border-color: rgba(0,0,0,0.12);
+        margin-bottom:16px;
+        padding: 16px;
+      }
+      label{
+        color:var(--danger-color);
+        font-family: 'Caveat',sans-serif;
+        font-size: 1.4em;
+      }
+      table{
+        width:100%;
+      }
+      th{
+        text-align: left;
+        padding:24px 16px 8px 0;
+      }
+      td{
+        text-align: left;
+        padding:8px 16px 8px 0;
+      }
+      label.header{
+        margin-bottom:10px;
+        margin-left:4px;
+      }
+      input{
+        width: 100%;
+      }
+      paper-card{
+        width: 100%;
+        padding:0 16px;
+      }
+      .content{
+        display: flex;
+        justify-content:space-between;
+        width: 100%;
+      }
+      .content span{
+        padding:.7em .57em;
+      }
+      paper-card paper-button{
+        color:var(--accent-color);
+      }
+      paper-checkbox{
+        display: block;
+        margin:8px .57em;
+      }
+      paper-dropdown-menu{
+        margin-left:16px;
+      }
+    </style>
+    <h2>My Plan for Success</h2>
+      <form is="iron-form">
+        <!-- Desired Career -->
+        <h3>Career Goal</h3>
+        <fieldset>
+        <!-- Prepolate from favorited careers -->
+          <label for="career">I want to be: </label>
+          <paper-dropdown-menu label="">
+            <paper-menu class="dropdown-content" selected="{{career}}" attr-for-selected="value">
+              <template is="dom-repeat" items="{{careers}}">
+                <paper-item value="{{item}}">{{item}}</paper-item>
+              </template>
+            </paper-menu>
+          </paper-dropdown-menu>
+        </fieldset>
+
+        <h3>Education Requirements</h3>
+        <fieldset>
+          <label class="header">In order to be a <strong>{{career}}</strong>, I will need:</label>
+          <table>
+            <thead>
+              <th>Education</th>
+              <th>My plan for completion</th>
+            </thead>
+            <template is="dom-repeat" items="{{education}}" as="edu">
+              <tr>
+                <td>{{edu}}</td>
+                <td>
+                  <input is="iron-input" bind-value="Attend X university"></iron-input>
+                </td>
+              </tr>
+            </template>
+            <thead>
+              <th>Certifications / Licenses</th>
+              <th></th>
+            </thead>
+            <template is="dom-repeat" items="{{certs}}" as="cert">
+              <tr>
+                <td>{{cert}}</td>
+                <td>
+                  <input name="{{cert}}" is="iron-input"></iron-input>
+                </td>
+              </tr>
+            </template>
+          </table>
+        </fieldset>
+
+        <h3>Preparation</h3>
+        <fieldset>
+          <label class="header">I can start preparing now by...</label>
+          <table>
+            <thead>
+              <th colspan="2">Taking these related classes:</th>
+            </thead>
+            <template is="dom-repeat" items="{{education}}" as="edu">
+              <tr>
+                <td>{{edu}}</td>
+                <td>
+                  <input is="iron-input" bind-value="Attend X university"></iron-input>
+                </td>
+              </tr>
+            </template>
+            <thead>
+              <th colspan="2">Participating in these related activites:</th>
+            </thead>
+            <template is="dom-repeat" items="{{certs}}" as="cert">
+              <tr>
+                <td>{{cert}}</td>
+                <td>
+                  <input name="{{cert}}" is="iron-input"></iron-input>
+                </td>
+              </tr>
+            </template>
+          </table>
+        </fieldset>
+
+        <h2>My Steps to Success</h2>
+        <fieldset>
+          <paper-checkbox checked>Register for AP Psych</paper-checkbox>
+          <paper-checkbox checked>Join Community Service Group</paper-checkbox>
+          <paper-checkbox>Request letter ofrecommendation from Ms Smith</paper-checkbox>
+          <paper-checkbox>Apply to University X (Priority Deadline: October 15th)</paper-checkbox>
+          <paper-checkbox>Follow-up with Mr. Washington @ University X</paper-checkbox>
+          <paper-button class="primary">
+            <iron-icon icon="add"></iron-icon> Add Task
+          </paper-button>
+        </fieldset>
+
+        <paper-button class="block success" raised>Save Plan</paper-button>
+      </form>
+    <h2>Saved Plans</h2>
+    <paper-card elevation="0">
+      <div class="content">
+        <span>Career 1</span>
+        <span>Updated: 09/07/15</span>
+        <paper-button>Load</paper-button>
+      </div>
+    </paper-card>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'my-plan',
+
+      properties: {
+        user:{
+          type:Array
+        },
+        careers:{
+          type:Array,
+          computed:'_getCareers(user)'
+        },
+        career:{
+          type:String,
+          value:'Career 1'
+        }
+      },
+
+      observers:[
+        '_getEducation(career)',
+        '_getCerts(career)'
+      ],
+
+      // Fetch user's favorite careers
+      _getCareers:function(user){
+        return ["Career 1","Career 2","Career 3"];
+      },
+
+      // Education requirements base on id of chosen career
+      _getEducation:function(career){
+        var education = [];
+        if(career){
+          education = ['Undergraduate Degree (required)','Master Degree (recommended)']
+        }
+        this.set('education',education);
+      },
+
+      // Certification / licenses required for chosen career
+      _getCerts:function(career){
+        var certs = [];
+        if(career){
+          certs = ['National License','State License']
+        }
+        this.set('certs',certs);
+      }
+    });
+  })();
+  </script>
+</dom-module>

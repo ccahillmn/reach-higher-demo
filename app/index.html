@@ -61,26 +61,40 @@
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-          <paper-item data-route="dash">
-            <iron-icon icon="home"></iron-icon>
-            <span>Dashboard</span>
-          </paper-item>
-
-          <paper-item data-route="profile">
-            <iron-icon icon="account-box"></iron-icon>
-            <span>My Profile</span>
-          </paper-item>
-
-          <paper-item data-route="careers" class="menu-trigger">
-            <iron-icon icon="view-list"></iron-icon>
-            <span>Careers</span>
-          </paper-item>
-
-          <paper-item data-route="messages">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Messages</span>
+          <a href="dash">
+            <paper-item data-route="dash">
+              <iron-icon icon="home"></iron-icon>
+              <span>Dashboard</span>
+            </paper-item>
           </a>
-        </paper-item>
+
+          <a href="profile">
+            <paper-item data-route="profile">
+              <iron-icon icon="account-box"></iron-icon>
+              <span>My Profile</span>
+            </paper-item>
+          </a>
+
+          <a href="plan">
+            <paper-item data-route="plan">
+              <iron-icon icon="assignment"></iron-icon>
+              <span>My Plan</span>
+            </paper-item>
+          </a>
+
+          <a href="careers">
+            <paper-item data-route="careers" class="menu-trigger">
+              <iron-icon icon="view-list"></iron-icon>
+              <span>Careers</span>
+            </paper-item>
+          </a>
+
+          <a href="messages">
+            <paper-item data-route="messages">
+              <iron-icon icon="mail"></iron-icon>
+              <span>Messages</span>
+            </paper-item>
+          </a>
       </paper-scroll-header-panel>
 
       <!-- Main Area -->
@@ -119,7 +133,12 @@
               <h2>{{user.firstName}} {{user.lastName}}</h2>
             </section>
 
-            <!-- User dashboard with recent activity -->
+            <!-- User's education & career plan -->
+            <section data-route="plan">
+              <my-plan user="{{user}}"></my-plan>
+            </section>
+
+            <!-- Database of Careers -->
             <section data-route="careers">
               <h2>Career Database</h2>
             </section>
@@ -138,7 +157,7 @@
                  duration="6000"
                  text="Caching complete! This app will work offline.">
     </paper-toast>
-
+    <!--
     <platinum-sw-register auto-register
       clients-claim
       skip-waiting
@@ -147,7 +166,7 @@
         precache-file="precache.json">
       </platinum-sw-cache>
     </platinum-sw-register>
-
+    -->
   </template>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
