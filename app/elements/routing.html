@@ -3,16 +3,15 @@
   window.addEventListener('WebComponentsReady', function() {
 
     page('/', function () {
-      app.route = 'home';
+      if(!app.route){
+        app.route = 'dash';
+        $('[data-route="dash"').addClass('focused');
+      }
     });
 
     page('/careers/:career', function (data) {
       app.route = 'careers';
       app.params = data.params;
-    });
-
-    page('/messages', function () {
-      app.route = 'messages';
     });
 
     // add #! before urls

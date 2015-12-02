@@ -31,6 +31,7 @@
   <!-- Tile icon for Win8 (144x144) -->
   <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
 
+  <link href='https://fonts.googleapis.com/css?family=Caveat:400,700' rel='stylesheet' type='text/css'>
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
@@ -54,7 +55,8 @@
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
-          <span class="paper-font-title">Menu</span>
+          <img class="avatar" src="{{user.pic}}"/>
+          <span>{{user.email}}</span>
         </paper-toolbar>
 
         <!-- Drawer Content -->
@@ -88,10 +90,8 @@
         <paper-toolbar id="mainToolbar" class="tall">
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
           <span class="flex"></span>
-
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
+          <paper-button on-tap="logout">Logout</paper-button>
+          
 
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">
@@ -100,7 +100,7 @@
 
           <!-- Application sub title -->
           <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead">Your future, improved.</div>
+            <div class="app-subtitle">Get educated. Get employed.</div>
           </div>
 
         </paper-toolbar>
@@ -111,12 +111,12 @@
 
             <!-- User dashboard with recent activity -->
             <section data-route="dash">
-              <h2>Welcome, {{user.name}}</h2>
+              <h2>Welcome, {{user.firstName}}</h2>
             </section>
 
             <!-- User's public profile & settings -->
             <section data-route="profile">
-              <h2>{{user.name}}</h2>
+              <h2>{{user.firstName}} {{user.lastName}}</h2>
             </section>
 
             <!-- User dashboard with recent activity -->
@@ -150,8 +150,10 @@
 
   </template>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
+  <script src="scripts/scripts.js"></script>
   <!-- endbuild-->
 </body>
 
