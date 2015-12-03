@@ -11,12 +11,18 @@
       var route = data.params.route;
       app.route = route;
       $('[data-route]').removeClass('focused');
+      $('paper-item').removeClass('focused');
+      var drawerPanel = document.querySelector('#paperDrawerPanel');
+      if (drawerPanel.narrow) {
+        drawerPanel.closeDrawer();
+      }
+      if(route == 'careers'){
+        var dialog = document.getElementById('dbdialog');
+        if(dialog){
+          dialog.open();
+        }
+      }
       $('[data-route="'+route+'"').addClass('focused');
-    });
-
-    page('/careers/:career', function (data) {
-      app.route = 'careers';
-      app.params = data.params;
     });
 
     // add #! before urls

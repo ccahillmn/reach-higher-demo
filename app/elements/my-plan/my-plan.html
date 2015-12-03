@@ -16,6 +16,7 @@
         color:var(--danger-color);
         font-family: 'Caveat',sans-serif;
         font-size: 1.4em;
+        margin-right:16px;
       }
       table{
         width:100%;
@@ -42,10 +43,15 @@
       .content{
         display: flex;
         justify-content:space-between;
+        align-content:center;
         width: 100%;
       }
       .content span{
         padding:.7em .57em;
+      }
+      .content span:first-child{
+        min-width: 100px;
+        font-weight: bold;
       }
       paper-card paper-button{
         color:var(--accent-color);
@@ -53,9 +59,6 @@
       paper-checkbox{
         display: block;
         margin:8px .57em;
-      }
-      paper-dropdown-menu{
-        margin-left:16px;
       }
     </style>
     <h2>My Plan for Success</h2>

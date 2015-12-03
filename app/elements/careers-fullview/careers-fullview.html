@@ -1,0 +1,70 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="careers-fullview">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div id="main" class="main">
+      <h2>{{career.name}}</h2>
+      <p>{{career.desc}}</p>
+    </div>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'careers-fullview',
+
+      behaviors: [
+        Polymer.NeonAnimatableBehavior
+      ],
+
+      properties: {
+        career:{
+          type:Array
+        },
+        sharedElements: {
+          type: Object,
+          value: function() {
+            return {
+              'hero': this.$.main
+            };
+          }
+        },
+        animationConfig: {
+          type: Object,
+          value: function() {
+            return {
+              'entry': [{
+                name: 'fade-in-animation',
+                node: this.$.button
+              }, {
+                name: 'hero-animation',
+                id: 'hero',
+                toPage: this
+              }],
+              'exit': [{
+                name: 'fade-out-animation',
+                node: this.$.button
+              }, {
+                name: 'scale-down-animation',
+                node: this.$.main,
+                transformOrigin: '50% 50%',
+                axis: 'y'
+              }]
+            }
+          }
+        }
+      },
+
+      _close:function() {
+        this.fire('close');
+      }
+    });
+  })();
+  </script>
+</dom-module>

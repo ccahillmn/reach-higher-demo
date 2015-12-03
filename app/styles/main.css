@@ -4,6 +4,10 @@ body {
   color: #333;
 }
 
+a{
+	text-decoration: none;
+}
+
 h1,h2,h3{
 	color:#272356;
 	margin:16px 0 8px;
@@ -103,8 +107,8 @@ iron-pages{
 	}
 }
 
-paper-button{
-	margin: 0;
+form paper-button{
+	margin:0;
 }
 
 paper-button.primary, paper-button.btn-primary, paper-button[primary] { color: #127DC1; }

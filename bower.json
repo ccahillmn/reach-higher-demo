@@ -6,7 +6,11 @@
     "paper-elements": "PolymerElements/paper-elements#1.0.1",
     "platinum-elements": "PolymerElements/platinum-elements#1.0.1",
     "neon-elements": "PolymerElements/neon-elements#1.0.0",
-    "page": "visionmedia/page.js#~1.6.3"
+    "page": "visionmedia/page.js#~1.6.3",
+    "neon-animation": "PolymerElements/neon-animation#~1.0.8",
+    "paper-dialog-behavior": "PolymerElements/paper-dialog-behavior#~1.1.0",
+    "paper-dialog": "PolymerElements/paper-dialog#~1.0.3",
+    "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#~1.1.0"
   },
   "devDependencies": {}
 }

@@ -1,0 +1,85 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="careers-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-card{
+        width:100%;
+      }
+    </style>
+    <iron-list items="{{careers}}">
+      <paper-card heading="{{item.name}}" image="{{item.pic}}">
+        <div class="card-content">
+          <p>{{item.desc}}</p>
+        </div>
+        <div class="card-actions">
+          <paper-button class="primary">View Profile</paper-button>
+        </div>
+      </paper-card>
+    </iron-list>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'careers-list',
+
+      properties: {
+        careers:{
+          value:function(){
+            var careers;
+            
+            jQuery.getJSON('careers.json', function(json, textStatus) {
+              careers = json;
+            });
+            
+            return careers;
+          }
+        },
+        animationConfig: {
+          type: Object,
+          value: function() {
+            return {
+              'entry': [{
+                name: 'scale-up-animation',
+                node: this.$.button
+              }],
+              'exit': [{
+                name: 'scale-down-animation',
+                node: this.$.button
+              }, {
+                name: 'hero-animation',
+                id: 'hero',
+                fromPage: this
+              }]
+            };
+          }
+        }
+      },
+
+       listeners: {
+        'tap': '_expand'
+      },
+
+      _expand: function(event) {
+        var target = event.target;
+        while (target !== this && !target._templateInstance) {
+          target = target.parentNode;
+        }
+        this.sharedElements = {
+          'hero': target,
+        };
+        this.fire('item-click', {
+          item: target,
+        });
+      }
+
+
+    });
+  })();
+  </script>
+</dom-module>
