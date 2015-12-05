@@ -6,20 +6,16 @@
       :host {
         display: block;
       }
-      paper-card{
-        width:100%;
-      }
     </style>
-    <iron-list items="{{careers}}">
-      <paper-card heading="{{item.name}}" image="{{item.pic}}">
-        <div class="card-content">
-          <p>{{item.desc}}</p>
-        </div>
-        <div class="card-actions">
-          <paper-button class="primary">View Profile</paper-button>
-        </div>
-      </paper-card>
-    </iron-list>
+    <template is="dom-repeat" items="[[careers]]" as="item">
+      <career-item item="[[item]]" fav="{{item.fav}}"></career-item>
+    </template>
+    <iron-ajax
+      auto
+      url="/careers.json"
+      handle-as="json"
+      last-response="{{careers}}">
+    </iron-ajax>
   </template>
   <script>
   (function() {
@@ -29,54 +25,8 @@
       is: 'careers-list',
 
       properties: {
-        careers:{
-          value:function(){
-            var careers;
-            
-            jQuery.getJSON('careers.json', function(json, textStatus) {
-              careers = json;
-            });
-            
-            return careers;
-          }
-        },
-        animationConfig: {
-          type: Object,
-          value: function() {
-            return {
-              'entry': [{
-                name: 'scale-up-animation',
-                node: this.$.button
-              }],
-              'exit': [{
-                name: 'scale-down-animation',
-                node: this.$.button
-              }, {
-                name: 'hero-animation',
-                id: 'hero',
-                fromPage: this
-              }]
-            };
-          }
-        }
-      },
 
-       listeners: {
-        'tap': '_expand'
       },
-
-      _expand: function(event) {
-        var target = event.target;
-        while (target !== this && !target._templateInstance) {
-          target = target.parentNode;
-        }
-        this.sharedElements = {
-          'hero': target,
-        };
-        this.fire('item-click', {
-          item: target,
-        });
-      }
 
 
     });

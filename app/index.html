@@ -61,10 +61,26 @@
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+          <!--
           <a href="dash">
             <paper-item data-route="dash">
               <iron-icon icon="home"></iron-icon>
               <span>Dashboard</span>
+            </paper-item>
+          </a>
+          -->
+
+          <a href="careers">
+            <paper-item data-route="careers" class="menu-trigger">
+              <iron-icon icon="view-list"></iron-icon>
+              <span>Find Careers</span>
+            </paper-item>
+          </a>
+
+          <a href="resources">
+            <paper-item data-route="resources" class="menu-trigger">
+              <iron-icon icon="thumb-up"></iron-icon>
+              <span>Get Hired</span>
             </paper-item>
           </a>
 
@@ -82,13 +98,6 @@
             </paper-item>
           </a>
 
-          <a href="careers">
-            <paper-item data-route="careers" class="menu-trigger">
-              <iron-icon icon="view-list"></iron-icon>
-              <span>Careers</span>
-            </paper-item>
-          </a>
-
           <a href="messages">
             <paper-item data-route="messages">
               <iron-icon icon="mail"></iron-icon>
@@ -98,7 +107,7 @@
       </paper-scroll-header-panel>
 
       <!-- Main Area -->
-      <paper-scroll-header-panel main condenses keep-condensed-header>
+      <paper-scroll-header-panel main condenses>
 
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar" class="tall">
@@ -123,10 +132,11 @@
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-            <!-- User dashboard with recent activity -->
+            <!-- User dashboard with recent activity
             <section data-route="dash">
               <h2>Welcome, {{user.firstName}}</h2>
             </section>
+             -->
 
             <!-- User's public profile & settings -->
             <section data-route="profile">
@@ -143,6 +153,11 @@
               <careers-view user-id="{{user.id}}"></careers-view>
             </section>
 
+            <!-- Personal Development Resources -->
+            <section data-route="resources">
+              <h2>Resources</h2>
+            </section>
+
             <!-- Private messages between user & organizations -->
             <section data-route="messages">
               <h2>Messages</h2>
@@ -153,11 +168,12 @@
       </paper-scroll-header-panel>
     </paper-drawer-panel>
 
+  <!--
     <paper-toast id="caching-complete"
                  duration="6000"
                  text="Caching complete! This app will work offline.">
     </paper-toast>
-    <!--
+    
     <platinum-sw-register auto-register
       clients-claim
       skip-waiting

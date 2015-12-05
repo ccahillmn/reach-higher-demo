@@ -1,0 +1,87 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="career-item">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-card{
+        width:100%;
+        margin-bottom:16px;
+      }
+      .title{
+        font-weight: bold;
+        font-size: 24px;
+      }
+      .summary{
+        padding-top:0;
+      }
+      .card-actions{
+        text-align: right;
+      }
+      paper-icon-button{
+        float:right;
+        padding:0;
+        height:24px;
+        color:grey;
+      }
+      paper-icon-button.favorite, paper-icon-button:hover{
+        color:var(--accent-color);
+      }
+    </style>
+    <paper-card>
+        <div class="card-content header">
+          <span class="title">{{item.name}}</span>
+          <paper-icon-button alt="Save to your Favorites list" class$="{{_toggle(fav)}}" on-tap="_favorite" icon="favorite"></paper-icon-button>
+        </div>
+        <div class="card-content summary">
+          {{item.desc}}
+        </div>
+        <div class="card-actions">
+          <paper-button class="primary">View Profile</paper-button>
+        </div>
+      </paper-card>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'career-item',
+
+      properties: {
+        item:{
+          type:Array
+        },
+        fav:{
+          type: Boolean
+        }
+      },
+
+      observers:[
+        '_toggle(fav)'
+      ],
+
+      _favorite:function(){
+        var fav = this.fav;
+        if(fav){
+          this.set('fav',false)
+        }
+        else{
+          this.set('fav',true)
+        }
+      },
+
+      _toggle:function(fav){
+        if(fav){
+          return 'favorite'
+        }
+        else{
+          return null
+        }
+      }
+    });
+  })();
+  </script>
+</dom-module>

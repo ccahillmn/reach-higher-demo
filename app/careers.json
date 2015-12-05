@@ -1,56 +1,226 @@
-0:{
-	name:"Career Name",
-	desc:"Career Desc",
-	url:"http://linktocareer.com",
-	programs:{
-		0:{
-			school:"school name",
-			name:"program name",
-			url:"http://linktoprograminfo.com"
+[{
+		"name":"Career Name",
+		"desc":"Career Desc",
+		"url":"http://linktocareer.com",
+		"programs":{
+			"0":{
+				"school":"school name",
+				"name":"program name",
+				"url":"http://linktoprograminfo.com"
+			},
+			"1":{
+				"school":"another school name"
+			}
 		},
-		1:{
-			school:"another school name"
+		"degrees":{
+			"AA":{
+				"name":"major name",
+				"required":true
+			},
+			"BA":{
+				"name":"major name",
+				"required":true
+			},
+			"MA":{
+				"name":"major name",
+				"required":false
+			},
+			"PhD":{
+				"name":"major name",
+				"required":false
+			}
+		},
+		"certificates":{
+			"0":{
+				"org":"organization name",
+				"name":"name of cert or license",
+				"url":"http://urltomoreinfo.com"
+			}
+		},
+		"activities":{
+			"1":"activity 1",
+			"2":"activity 2"
+		},
+		"interests":"interest code from Onet, e.g. CE",
+		"related":{
+			"number":"career name",
+			"number2":"career name"
+		},
+		"wages":{
+			"hourly":"$5.00",
+			"annual":"$35,000"
+		},
+		"trends":{
+			"growth":"growth from Onet"
 		}
 	},
-	degrees:{
-		AA:{
-			name:"major name",
-			required:true
+	{
+		"fav":true,
+		"name":"Career Name",
+		"desc":"Career Desc",
+		"url":"http://linktocareer.com",
+		"programs":{
+			"0":{
+				"school":"school name",
+				"name":"program name",
+				"url":"http://linktoprograminfo.com"
+			},
+			"1":{
+				"school":"another school name"
+			}
 		},
-		BA:{
-			name:"major name",
-			required:true
+		"degrees":{
+			"AA":{
+				"name":"major name",
+				"required":true
+			},
+			"BA":{
+				"name":"major name",
+				"required":true
+			},
+			"MA":{
+				"name":"major name",
+				"required":false
+			},
+			"PhD":{
+				"name":"major name",
+				"required":false
+			}
 		},
-		MA:{
-			name:"major name",
-			required:false
+		"certificates":{
+			"0":{
+				"org":"organization name",
+				"name":"name of cert or license",
+				"url":"http://urltomoreinfo.com"
+			}
 		},
-		PhD:{
-			name:"major name",
-			required:false
+		"activities":{
+			"1":"activity 1",
+			"2":"activity 2"
+		},
+		"interests":"interest code from Onet, e.g. CE",
+		"related":{
+			"number":"career name",
+			"number2":"career name"
+		},
+		"wages":{
+			"hourly":"$5.00",
+			"annual":"$35,000"
+		},
+		"trends":{
+			"growth":"growth from Onet"
 		}
 	},
-	certificates:{
-		0:{
-			org:"organization name",
-			name:"name of cert or license",
-			url:"http://urltomoreinfo.com"
+	{
+		"name":"Career Name",
+		"desc":"Career Desc",
+		"url":"http://linktocareer.com",
+		"programs":{
+			"0":{
+				"school":"school name",
+				"name":"program name",
+				"url":"http://linktoprograminfo.com"
+			},
+			"1":{
+				"school":"another school name"
+			}
+		},
+		"degrees":{
+			"AA":{
+				"name":"major name",
+				"required":true
+			},
+			"BA":{
+				"name":"major name",
+				"required":true
+			},
+			"MA":{
+				"name":"major name",
+				"required":false
+			},
+			"PhD":{
+				"name":"major name",
+				"required":false
+			}
+		},
+		"certificates":{
+			"0":{
+				"org":"organization name",
+				"name":"name of cert or license",
+				"url":"http://urltomoreinfo.com"
+			}
+		},
+		"activities":{
+			"1":"activity 1",
+			"2":"activity 2"
+		},
+		"interests":"interest code from Onet, e.g. CE",
+		"related":{
+			"number":"career name",
+			"number2":"career name"
+		},
+		"wages":{
+			"hourly":"$5.00",
+			"annual":"$35,000"
+		},
+		"trends":{
+			"growth":"growth from Onet"
 		}
 	},
-	activities:{
-		"activity 1",
-		"activity 2"
-	},
-	interests:"interest code from Onet, e.g. CE",
-	related:{
-		number:"career name",
-		number2:"career name"
-	},
-	wages:{
-		hourly:"$5.00",
-		annual:"$35,000"
-	},
-	trends:{
-		growth:"growth from Onet"
+	{
+		"name":"Career Name",
+		"desc":"Career Desc",
+		"url":"http://linktocareer.com",
+		"programs":{
+			"0":{
+				"school":"school name",
+				"name":"program name",
+				"url":"http://linktoprograminfo.com"
+			},
+			"1":{
+				"school":"another school name"
+			}
+		},
+		"degrees":{
+			"AA":{
+				"name":"major name",
+				"required":true
+			},
+			"BA":{
+				"name":"major name",
+				"required":true
+			},
+			"MA":{
+				"name":"major name",
+				"required":false
+			},
+			"PhD":{
+				"name":"major name",
+				"required":false
+			}
+		},
+		"certificates":{
+			"0":{
+				"org":"organization name",
+				"name":"name of cert or license",
+				"url":"http://urltomoreinfo.com"
+			}
+		},
+		"activities":{
+			"1":"activity 1",
+			"2":"activity 2"
+		},
+		"interests":"interest code from Onet, e.g. CE",
+		"related":{
+			"number":"career name",
+			"number2":"career name"
+		},
+		"wages":{
+			"hourly":"$5.00",
+			"annual":"$35,000"
+		},
+		"trends":{
+			"growth":"growth from Onet"
+		}
 	}
-}
+]
