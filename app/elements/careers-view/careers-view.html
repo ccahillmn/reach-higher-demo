@@ -22,7 +22,48 @@
       paper-button span{
         display: inline-block;
       }
+      form{
+        display: flex;
+        justify-content:flex-start;
+        align-items:bottom;
+        flex-wrap:wrap;
+        margin:20px 0;
+        padding:0 20px 20px;
+        background-color: rgba(0,0,0,0.03);;
+        border:1px solid rgba(0,0,0,0.12);
+        border-radius: 5px;
+      }
+      paper-input{
+        flex-grow:2;
+        flex-basis:500px;
+      }
+      paper-checkbox{
+        margin:35px 20px 0 0;
+
+      }
+      paper-dropdown-menu{
+        flex-grow:2;
+      }
+      a{
+        cursor: pointer;
+      }
     </style>
+    Browse the database below or <a on-tap="_open">personalize your results</a> based on your interests.
+    <form is="iron-form">
+      <paper-input class="block" label="Search Careers">
+        <paper-icon-button suffix icon="search"></paper-icon-button>
+      </paper-input>
+      <paper-checkbox>Show only my favorites</paper-checkbox>
+      <paper-dropdown-menu label="Sort by...">
+        <paper-menu class="dropdown-content" selected="{{sort}}" attr-for-selected="value">
+          <paper-item>Career Name</paper-item>
+          <paper-item>Avergage Salary</paper-item>
+          <paper-item>Available Jobs - Near Me</paper-item>
+          <paper-item>Available Jobs - Total</paper-item>
+        </paper-menu>
+      </paper-dropdown-menu>
+    </form>
+
     <neon-animated-pages id="pages" selected="0">
       <careers-list user="{{userId}}" on-item-click="_expand"></careers-list>
       <careers-fullview on-close="_close"></careers-fullview>
@@ -49,6 +90,11 @@
           type: Array
         }
       },
+
+      _open:function(){
+        var dialog = document.getElementById('dbdialog');
+        dialog.open();
+      }
 
     });
   })();

@@ -16,11 +16,10 @@
       if (drawerPanel.narrow) {
         drawerPanel.closeDrawer();
       }
-      if(route == 'careers'){
+      if(route == 'careers' && firstRun){
         var dialog = document.getElementById('dbdialog');
-        if(dialog){
-          dialog.open();
-        }
+        dialog.open();
+        firstRun = false;
       }
       $('[data-route="'+route+'"').addClass('focused');
     });
