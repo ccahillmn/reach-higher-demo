@@ -9,6 +9,8 @@ app.user = {
 	firstRun:true
 }
 
+var scroll;
+
 var firstRun = true;
 
 (function(document) {
@@ -17,5 +19,24 @@ var firstRun = true;
 	$(window).resize(function() {
     	document.querySelector('paper-scroll-header-panel').condense(true);
     });
+
+    var width = $('body').width();
+    if(width > 600){
+    	scroll = 128;
+    }
+    else{
+    	scroll = 113;
+    }
+
+	// Close drawer after menu item is selected if drawerPanel is narrow
+	app.onMenuSelect = function() {
+
+		page.redirect('/' + app.route);
+
+		var drawerPanel = document.querySelector('#paperDrawerPanel');
+		if (drawerPanel.narrow) {
+		  drawerPanel.closeDrawer();
+		}
+	};
 
 })(document);

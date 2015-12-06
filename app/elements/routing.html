@@ -4,21 +4,18 @@
 
     page('/', function () {
         page.redirect('/careers');
-      
     });
 
     page('/:route', function (data) {
+      // Set view via route
       var route = data.params.route;
-      app.route = route;
+      if(!app.route){
+        app.route = route;
+        return false;
+      }
 
       // Unfocus previous page
       $('[data-route]').removeClass('focused');
-
-      // Close drawer on page select
-      var drawerPanel = document.querySelector('#paperDrawerPanel');
-      if (drawerPanel.narrow) {
-        drawerPanel.closeDrawer();
-      }
 
       // Show pop-up on firstRun
       if(route == 'careers' && firstRun){
@@ -27,8 +24,7 @@
         firstRun = false;
       }
       else{
-        document.querySelector('paper-scroll-header-panel').scrollTop = 0;
-        document.querySelector('paper-scroll-header-panel').condense(true);
+        $('#mainContainer').animate({scrollTop: scroll},500);
       }
 
       // Focus current page
