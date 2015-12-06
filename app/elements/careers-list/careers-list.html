@@ -6,9 +6,49 @@
       :host {
         display: block;
       }
+      form{
+        display: flex;
+        justify-content:flex-start;
+        align-items:bottom;
+        flex-wrap:wrap;
+        margin:20px 0;
+        padding:0 20px 20px;
+        background-color: rgba(0,0,0,0.03);;
+        border:1px solid rgba(0,0,0,0.12);
+        border-radius: 5px;
+      }
+      paper-input{
+        flex-grow:2;
+        flex-basis:500px;
+      }
+      paper-checkbox{
+        margin-top:30px;
+      }
+      paper-dropdown-menu{
+        flex-grow:2;
+        margin-right:20px;
+      }
+      a{
+        cursor: pointer;
+      }
     </style>
+    <p class="center">Browse the database below or <a on-tap="_open">personalize your results</a> based on your interests.</p>
+    <form is="iron-form">
+      <paper-input class="block" label="Search Careers">
+        <paper-icon-button suffix icon="search"></paper-icon-button>
+      </paper-input>
+      <paper-dropdown-menu label="Sort by...">
+        <paper-menu class="dropdown-content" selected="{{sort}}" attr-for-selected="value">
+          <paper-item>Career Name</paper-item>
+          <paper-item>Avergage Salary</paper-item>
+          <paper-item>Available Jobs - Near Me</paper-item>
+          <paper-item>Available Jobs - Total</paper-item>
+        </paper-menu>
+      </paper-dropdown-menu>
+      <paper-checkbox>Show only my favorites</paper-checkbox>
+    </form>
     <template is="dom-repeat" items="[[careers]]" as="item">
-      <career-item item="[[item]]" fav="{{item.fav}}"></career-item>
+      <career-item on-item-click="_selected" item="[[item]]" fav="{{item.fav}}"></career-item>
     </template>
     <iron-ajax
       auto
@@ -27,6 +67,10 @@
       properties: {
 
       },
+
+      _selected:function(){
+        this.fire('item-click');
+      }
 
 
     });

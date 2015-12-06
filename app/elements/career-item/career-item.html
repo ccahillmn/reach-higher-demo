@@ -39,7 +39,7 @@
           {{item.desc}}
         </div>
         <div class="card-actions">
-          <paper-button class="primary">View Profile</paper-button>
+          <paper-button class="primary" on-tap="_select">View Profile</paper-button>
         </div>
       </paper-card>
   </template>
@@ -80,7 +80,12 @@
         else{
           return null
         }
+      },
+
+      _select:function(){
+        this.fire('item-click');
       }
+
     });
   })();
   </script>

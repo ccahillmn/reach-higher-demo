@@ -6,11 +6,16 @@
       :host {
         display: block;
       }
+      paper-icon-button{
+        float:left;
+        color:#ddd;
+      }
     </style>
-    <div id="main" class="main">
+    <paper-material id="main" class="main">
+      <paper-icon-button icon="close" on-tap="_close"></paper-icon-button>
       <h2>{{career.name}}</h2>
       <p>{{career.desc}}</p>
-    </div>
+    </paper-material>
   </template>
   <script>
   (function() {
@@ -28,6 +33,10 @@
           type:Array
         }
       },
+
+      _close:function(){
+        this.fire('close');
+      }
 
     });
   })();
