@@ -31,6 +31,11 @@ h3{
 	font-weight: normal;
 }
 
+.center{
+	margin:auto;
+	text-align: center;
+}
+
 .app-name{
 	font-family: Impact, sans-serif;
 	font-weight: bold;

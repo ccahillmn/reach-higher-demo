@@ -10,17 +10,28 @@
     page('/:route', function (data) {
       var route = data.params.route;
       app.route = route;
+
+      // Unfocus previous page
       $('[data-route]').removeClass('focused');
-      $('paper-item').removeClass('focused');
+
+      // Close drawer on page select
       var drawerPanel = document.querySelector('#paperDrawerPanel');
       if (drawerPanel.narrow) {
         drawerPanel.closeDrawer();
       }
+
+      // Show pop-up on firstRun
       if(route == 'careers' && firstRun){
         var dialog = document.getElementById('dbdialog');
         dialog.open();
         firstRun = false;
       }
+      else{
+        document.querySelector('paper-scroll-header-panel').scrollTop = 0;
+        document.querySelector('paper-scroll-header-panel').condense(true);
+      }
+
+      // Focus current page
       $('[data-route="'+route+'"').addClass('focused');
     });
 

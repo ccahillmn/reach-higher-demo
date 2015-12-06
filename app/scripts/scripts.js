@@ -14,6 +14,8 @@ var firstRun = true;
 (function(document) {
   'use strict';
 
-	
+	$(window).resize(function() {
+    	document.querySelector('paper-scroll-header-panel').condense(true);
+    });
 
 })(document);
