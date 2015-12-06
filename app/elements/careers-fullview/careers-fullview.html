@@ -6,16 +6,84 @@
       :host {
         display: block;
       }
+      paper-card{
+        width: 100%;
+      }
+      paper-button:not(iron-iron){
+        font-size:18px;
+      }
+      iron-icon{
+        margin-right: 5px;
+        margin-bottom:4px;
+      }
+      .row{
+        display: flex;
+        justify-content:flex-start
+        align-items:stretch;
+        flex-wrap:wrap;
+      }
+      .row > div{
+        margin-right:20px;
+        display: inline-block;
+      }
+      .row > div:last-child{
+        margin:0;
+      }
+      li{
+        display: block;
+      }
       paper-icon-button{
-        float:left;
-        color:#ddd;
+        float:right;
+        padding:0;
+        height:24px;
+        color:grey;
+        margin:16px;
+      }
+      paper-icon-button.favorite{
+        color:var(--accent-color);
+      }
+      paper-icon-button:hover{
+        color:pink;
       }
     </style>
-    <paper-material id="main" class="main">
-      <paper-icon-button icon="close" on-tap="_close"></paper-icon-button>
-      <h2>{{career.name}}</h2>
-      <p>{{career.desc}}</p>
-    </paper-material>
+    <paper-card>
+      <div>
+        <paper-button on-tap="_close"><iron-icon icon="arrow-back"></iron-icon> Back to Database</paper-button>
+        <paper-icon-button alt="Save to your Favorites list" class$="{{_toggle(fav)}}" on-tap="_favorite" icon="favorite"></paper-icon-button>
+      </div>
+      <div class="card-content">
+        <h2>{{career.name}}</h2>
+        <p>{{career.desc}}</p>
+        <hr/>
+
+        <div class="row">
+          <div>
+            <h3>Education</h3>
+            <ul>
+              <template is="dom-repeat" items="[[_array(career.degrees)]]" as="item">
+                <li><span>{{item.type}}</span> <span>{{item.name}}</span> <span>{{_req(item.required)}}</li>
+              </template>
+            </ul>
+          </div>
+          <div>
+            <h3>Certifications / Licenses</h3>
+            <ul>
+              <template is="dom-repeat" items="{{_array(career.certificates)}}">
+                <li><a href="{{item.url}}">{{item.name}} by ({{item.org}})</a></li>
+              </template>
+            </ul>
+          </div>
+          <div>
+            <h3>Earning Potential</h3>
+            <ul>
+              <li>{{career.wages.hourly}}</li>
+              <li>{{career.wages.annual}}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </paper-card>
   </template>
   <script>
   (function() {
@@ -29,14 +97,51 @@
       ],
 
       properties: {
-        career:{
-          type:Array
+
+      },
+
+      observers:[
+        '_toggle(fav)',
+        '_setFav(career)'
+      ],
+
+      _setFav:function(career){
+        this.set('fav',career.fav);
+      },
+
+      _favorite:function(){
+        var fav = this.fav;
+        if(fav){
+          this.set('fav',false)
+        }
+        else{
+          this.set('fav',true)
         }
       },
 
       _close:function(){
         this.fire('close');
-      }
+      },
+
+      _req:function(req){
+        if(!req){
+          return '(suggested)'
+        }
+      },
+
+      _array:function(obj){
+        var arr = $.map(obj, function(el) { return el });
+        return arr;
+      },
+
+      _toggle:function(fav){
+        if(fav){
+          return 'favorite'
+        }
+        else{
+          return null
+        }
+      },
 
     });
   })();

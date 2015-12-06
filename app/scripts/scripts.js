@@ -10,7 +10,6 @@ app.user = {
 }
 
 var scroll;
-
 var firstRun = true;
 
 (function(document) {

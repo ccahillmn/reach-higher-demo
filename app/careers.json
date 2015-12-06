@@ -183,6 +183,7 @@
 		},
 		"degrees":{
 			"AA":{
+				"type":"AA",
 				"name":"major name",
 				"required":true
 			},
@@ -202,7 +203,7 @@
 		"certificates":{
 			"0":{
 				"org":"organization name",
-				"name":"name of cert or license",
+				"name":"name of cert",
 				"url":"http://urltomoreinfo.com"
 			}
 		},
