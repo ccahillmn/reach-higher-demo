@@ -12,17 +12,7 @@
       paper-dialog{
         text-align: center;
         position: fixed;
-        top: 25%;
-        left: 25%;
-        bottom: 25%;
-        right: 25%;
         margin: auto;
-      }
-      paper-dialog-scrollable{
-        margin:0;
-      }
-      paper-dialog h2{
-        margin:24px 0;
       }
       paper-button{
         margin:16px 0;
@@ -46,7 +36,11 @@
           background: #fff; 
           padding: 0 15px; 
       }
-
+      @media (max-width: 700px) {
+        paper-dialog{
+          width:350px;
+        }
+      }
     </style>
 
     <neon-animated-pages id="pages" selected="0" entry-animation="{{entry}}" exit-animation="{{exit}}">

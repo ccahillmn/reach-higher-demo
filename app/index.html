@@ -33,6 +33,8 @@
 
   <link href='https://fonts.googleapis.com/css?family=Caveat:400,700' rel='stylesheet' type='text/css'>
   <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
 
@@ -61,30 +63,20 @@
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-          <!--
-          <a href="dash">
-            <paper-item data-route="dash">
-              <iron-icon icon="home"></iron-icon>
-              <span>Dashboard</span>
-            </paper-item>
-          </a>
-          -->
 
-          <paper-item data-route="careers" class="menu-trigger">
-            <iron-icon icon="view-list"></iron-icon>
-            <span>Find Careers</span>
+          <paper-item data-route="dash">
+            <iron-icon icon="home"></iron-icon>
+            <span>Dashboard</span>
           </paper-item>
-
-          <paper-item data-route="resources" class="menu-trigger">
-            <iron-icon icon="thumb-up"></iron-icon>
-            <span>Get Hired</span>
-          </paper-item>
-
-          <hr/>
 
           <paper-item data-route="profile">
             <iron-icon icon="account-box"></iron-icon>
             <span>Profile</span>
+          </paper-item>
+
+          <paper-item data-route="careers" class="menu-trigger">
+            <iron-icon icon="view-list"></iron-icon>
+            <span>Career Database</span>
           </paper-item>
 
           <paper-item data-route="plan">
@@ -92,10 +84,21 @@
             <span>Success Plan</span>
           </paper-item>
 
+          <paper-item data-route="resources" class="menu-trigger">
+            <iron-icon icon="thumb-up"></iron-icon>
+            <span>Resources</span>
+          </paper-item>
+
+          
+
+          
+
+          <!--
           <paper-item data-route="messages">
             <iron-icon icon="mail"></iron-icon>
             <span>Messages</span>
           </paper-item>
+          -->
 
           <hr/>
       </paper-scroll-header-panel>
@@ -124,13 +127,12 @@
 
         <!-- Main Content -->
         <div class="content">
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+          <iron-pages attr-for-selected="data-route" selected="{{route}}" class="container-fluid">
 
-            <!-- User dashboard with recent activity
+            <!-- User dashboard with recent activity -->
             <section data-route="dash">
-              <h2>Welcome, {{user.firstName}}</h2>
+              <dashboard-view user="{{user}}"></dashboard-view>
             </section>
-             -->
 
             <!-- User's public profile & settings -->
             <section data-route="profile">
@@ -152,10 +154,11 @@
               <h2>Resources</h2>
             </section>
 
-            <!-- Private messages between user & organizations -->
+            <!-- Private messages between user & organizations
             <section data-route="messages">
               <h2>Messages</h2>
             </section>
+             -->
 
           </iron-pages>
         </div>

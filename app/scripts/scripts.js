@@ -24,7 +24,7 @@ var firstRun = true;
     	scroll = 128;
     }
     else{
-    	scroll = 113;
+    	scroll = 115;
     }
 
 	// Close drawer after menu item is selected if drawerPanel is narrow

@@ -110,7 +110,7 @@ iron-pages{
 }
 
 @media (max-width: 700px) {
-	.content *{
+	.content *:not(h2,h3,h4){
 		font-size: 99%;
 	}
 	.app-name{
@@ -124,6 +124,12 @@ iron-pages{
 form paper-button{
 	margin:0;
 }
+
+div > label{
+	display:block;
+	margin-bottom: 8px;
+}
+
 
 paper-button.primary, paper-button.btn-primary, paper-button[primary] { color: #127DC1; }
 paper-button.primary[raised], paper-button.btn-primary[raised], paper-button[primary][raised] { background-color: #127DC1; color: #fff; }

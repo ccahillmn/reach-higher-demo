@@ -3,7 +3,7 @@
   window.addEventListener('WebComponentsReady', function() {
 
     page('/', function () {
-        page.redirect('/careers');
+        page.redirect('/dash');
     });
 
     page('/:route', function (data) {
@@ -13,12 +13,21 @@
         app.route = route;
         return false;
       }
+      else if(app.route != route){
+        app.route = route;
+      }
 
       // Unfocus previous page
       $('[data-route]').removeClass('focused');
+      // Focus current page
+      $('[data-route="'+route+'"').addClass('focused');
 
       // Show pop-up on firstRun
-      if(route == 'careers' && firstRun){
+      if(route == 'dash'){
+        $('#mainContainer').animate({scrollTop: 0},500);
+      }
+      else if(route == 'careers' && firstRun){
+        $('#mainContainer').animate({scrollTop: scroll},500);
         var dialog = document.getElementById('dbdialog');
         dialog.open();
         firstRun = false;
@@ -27,8 +36,7 @@
         $('#mainContainer').animate({scrollTop: scroll},500);
       }
 
-      // Focus current page
-      $('[data-route="'+route+'"').addClass('focused');
+      
     });
 
     // add #! before urls
