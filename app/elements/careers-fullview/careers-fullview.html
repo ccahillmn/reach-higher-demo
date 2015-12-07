@@ -8,26 +8,14 @@
       }
       paper-card{
         width: 100%;
+        padding:16px;
       }
-      paper-button:not(iron-iron){
-        font-size:18px;
+      paper-button{
+        font-size:16px;
+        margin:8px 0 0;
       }
       iron-icon{
-        margin-right: 5px;
         margin-bottom:4px;
-      }
-      .row{
-        display: flex;
-        justify-content:flex-start
-        align-items:stretch;
-        flex-wrap:wrap;
-      }
-      .row > div{
-        margin-right:20px;
-        display: inline-block;
-      }
-      .row > div:last-child{
-        margin:0;
       }
       li{
         display: block;
@@ -45,43 +33,56 @@
       paper-icon-button:hover{
         color:pink;
       }
+      iron-icon[icon="launch"]{
+        width: 14px;
+      }
+      .row{
+        border-bottom:1px solid rgba(0,0,0,0.12);
+      }
+
     </style>
     <paper-card>
       <div>
-        <paper-button on-tap="_close"><iron-icon icon="arrow-back"></iron-icon> Back to Database</paper-button>
+        <paper-button on-tap="_close"><iron-icon icon="chevron-left"></iron-icon> Back to Database</paper-button>
         <paper-icon-button alt="Save to your Favorites list" class$="{{_toggle(fav)}}" on-tap="_favorite" icon="favorite"></paper-icon-button>
       </div>
       <div class="card-content">
-        <h2>{{career.name}}</h2>
-        <p>{{career.desc}}</p>
-        <hr/>
-
-        <div class="row">
-          <div>
-            <h3>Education</h3>
-            <ul>
-              <template is="dom-repeat" items="[[_array(career.degrees)]]" as="item">
-                <li><span>{{item.type}}</span> <span>{{item.name}}</span> <span>{{_req(item.required)}}</li>
-              </template>
-            </ul>
+        <div class="container-fluid">
+          <div class="row">
+            <h2>{{career.name}}</h2>
+            <p>{{career.desc}}</p>
           </div>
-          <div>
-            <h3>Certifications / Licenses</h3>
-            <ul>
-              <template is="dom-repeat" items="{{_array(career.certificates)}}">
-                <li><a href="{{item.url}}">{{item.name}} by ({{item.org}})</a></li>
-              </template>
-            </ul>
-          </div>
-          <div>
-            <h3>Earning Potential</h3>
-            <ul>
-              <li>{{career.wages.hourly}}</li>
-              <li>{{career.wages.annual}}</li>
-            </ul>
-          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <h3>Education</h3>
+              <ul>
+                <template is="dom-repeat" items="[[_array(career.degrees)]]" as="item">
+                  <li><span>{{item.type}}</span> <span>{{item.name}}</span> <span>{{_req(item.required)}}</span></li>
+                </template>
+              </ul>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <h3>Certifications / Licenses</h3>
+              <ul>
+                <template is="dom-repeat" items="{{_array(career.certificates)}}">
+                  <li>{{item.name}} by ({{item.org}}) <a href="{{item.url}}"><iron-icon icon="launch"></iron-icon></a></li>
+                </template>
+              </ul>
+            </div>
+          </div><!--Row 1-->
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Earning Potential</h3>
+              <ul>
+                <li>{{career.wages.hourly}} / hour</li>
+                <li>{{career.wages.annual}} annually</li>
+              </ul>
+            </div>
+          </div><!--Row 2-->
         </div>
-
+      </div>
+      <div>
+        <paper-button on-tap="_close"><iron-icon icon="chevron-left"></iron-icon> Back to Database</paper-button>
       </div>
     </paper-card>
   </template>

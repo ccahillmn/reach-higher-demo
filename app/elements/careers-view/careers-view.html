@@ -52,8 +52,8 @@
     <paper-dialog id="dbdialog" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop="true">
       <paper-dialog-scrollable>
         <h2>Get personalized career recomendations</h2>
-        <paper-button class="error block" raised>Take the Sokanu Career Test <span>(30 min.)</span></paper-button>
-        <paper-button class="info block" raised>Analyze your Twitter feed <span>(5 min.)</span></paper-button>
+        <paper-button class="error block" raised on-tap="_personalize" dialog-dismiss>Take the Sokanu Career Test <span>(30 min.)</span></paper-button>
+        <paper-button class="info block" raised on-tap="_personalize" dialog-dismiss>Analyze your Twitter feed <span>(5 min.)</span></paper-button>
         <h2 class="fancy"><span>Or</span></h2>
         <paper-button class="primary block" raised dialog-dismiss>Browse the Database</paper-button>
       </paper-dialog-scrollable>
@@ -103,6 +103,10 @@
         var prev = this.prev;
         $('#mainContainer').animate({scrollTop: prev},500);
         this.$.pages.selected = 0;
+      },
+
+      _personalize:function(){
+        page.redirect('/personalize');
       }
 
     });

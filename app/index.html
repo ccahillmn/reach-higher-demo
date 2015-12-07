@@ -85,12 +85,14 @@
           </paper-item>
 
           <paper-item data-route="resources" class="menu-trigger">
-            <iron-icon icon="thumb-up"></iron-icon>
-            <span>Resources</span>
+            <iron-icon icon="work"></iron-icon>
+            <span>Employment Resources</span>
           </paper-item>
 
-          
-
+          <paper-item data-route="support" class="menu-trigger">
+            <iron-icon icon="supervisor-account"></iron-icon>
+            <span>Contact an Advisor</span>
+          </paper-item>
           
 
           <!--
@@ -127,7 +129,7 @@
 
         <!-- Main Content -->
         <div class="content">
-          <iron-pages attr-for-selected="data-route" selected="{{route}}" class="container-fluid">
+          <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <!-- User dashboard with recent activity -->
             <section data-route="dash">
@@ -149,16 +151,22 @@
               <careers-view user-id="{{user.id}}" career="{{career}}"></careers-view>
             </section>
 
+            <!-- Database of Careers -->
+            <section data-route="personalize">
+              <h1>Personalized Career Results</h1>
+              <p>If a user chose to personalize the career database with either the Sokanu Career Test or Twitter Analysis (using IBM's Watson), this screen would walk them through the assessment of their choosing and then filter the <a href="careers">Career Database</a> based on their results.
+            </section>
+
             <!-- Personal Development Resources -->
             <section data-route="resources">
               <h2>Resources</h2>
             </section>
 
-            <!-- Private messages between user & organizations
-            <section data-route="messages">
-              <h2>Messages</h2>
+            <!-- Private messages between user & organizations -->
+            <section data-route="support">
+              <h2>Support Center</h2>
             </section>
-             -->
+            
 
           </iron-pages>
         </div>

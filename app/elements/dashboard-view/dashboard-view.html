@@ -8,9 +8,7 @@
       }
       paper-card{
         width:100%;
-        --paper-card-header:{
-             background-color: var(--success-color);
-        };
+        margin-bottom:24px;
         --paper-card-header-text:{
           font-family: Impact, sans-serif;
           font-size: 2em;
@@ -27,25 +25,47 @@
                0 5px 10px rgba(0,0,0,.25),
                0 10px 15px rgba(0,0,0,.2),
                0 20px 25px rgba(0,0,0,.10);
-        };
+        }
         --paper-card-header-color:#fff;
+      }
+      paper-card.success{
+        --paper-card-header:{
+          background-color: var(--success-color);
+        }
+      }
+      paper-card.info{
+        --paper-card-header:{
+          background-color: var(--info-color);
+        }
+      }
+      paper-card.warning{
+        --paper-card-header:{
+          background-color: var(--warning-color);
+        }
       }
     </style>
     <h2>Welcome, {{user.firstName}}</h2>
-    <div class="row">
-      <div class="col-lg-6">
-        <paper-card id="checklist" heading="Your Steps to Success">
-          <div class="card-content">                  
-            <label><paper-checkbox checked></paper-checkbox>Develop an online <a href="/profile">professional profile</a></label>
-            <label><paper-checkbox checked></paper-checkbox>Research <a href="/careers">careers</a> and save a list of your favorites</label>
-            <label><paper-checkbox></paper-checkbox>Create a <a href="/plan">Plan for Success</a> based on one or more of your favorite careers</label>
-            <label><paper-checkbox></paper-checkbox>Contact a guidance counselor for assistance</label>
-          </div>
-        </paper-card>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <paper-card id="checklist" heading="Your Steps to Success" class="success">
+            <div class="card-content">                  
+              <label><paper-checkbox checked></paper-checkbox>Develop an online <a href="/profile">professional profile</a></label>
+              <label><paper-checkbox checked></paper-checkbox>Research <a href="/careers">careers</a> and save a list of your favorites</label>
+              <label><paper-checkbox></paper-checkbox>Create a <a href="/plan">Plan for Success</a> based on one or more of your favorite careers</label>
+              <label><paper-checkbox></paper-checkbox>Contact a guidance counselor for assistance</label>
+            </div>
+          </paper-card>
+        </div>
+        <div class="col-lg-6">
+          <paper-card heading="Pro Tip" class="info">
+            <div class="card-content">
+              This box would display a tip related to applying for schools or getting a job, with a link to a <a href="resources">related resource</a>.
+            </div>
+          </paper-card>
+        </div>
       </div>
-      <div class="col-lg-6">
-      </div>
-    </div>
+    </style>
   </template>
   <script>
   (function() {
