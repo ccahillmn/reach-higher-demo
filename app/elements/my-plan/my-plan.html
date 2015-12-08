@@ -65,7 +65,7 @@
       auto
       url="/careers.json"
       handle-as="json"
-      last-response="{{careers}}">
+      last-response="{{list}}">
     </iron-ajax>
 
     <h2>My Plan for Success</h2>
@@ -74,10 +74,10 @@
         <h3>Career Goal</h3>
         <fieldset>
         <!-- Prepolate from favorited careers -->
-          <label for="career">I want to be: </label>
+          <label for="career">I want to be a: </label>
           <paper-dropdown-menu label="">
-            <paper-menu class="dropdown-content" selected="{{selected}}" attr-for-selected="value">
-              <template is="dom-repeat" items="{{_array(careers)}}">
+            <paper-menu class="dropdown-content" selected="{{selected}}">
+              <template is="dom-repeat" items="{{_getFavs(list)}}">
                 <paper-item value="{{index}}">{{item.name}}</paper-item>
               </template>
             </paper-menu>
@@ -94,9 +94,9 @@
             </thead>
             <template is="dom-repeat" items="{{_array(career.degrees)}}">
               <tr>
-                <td>{{item.name}}</td>
+                <td>{{item.type}} {{item.name}}</td>
                 <td>
-                  <input is="iron-input" bind-value="Attend X university"></iron-input>
+                  <input is="iron-input"></iron-input>
                 </td>
               </tr>
             </template>
@@ -104,7 +104,7 @@
               <th>Certifications / Licenses</th>
               <th></th>
             </thead>
-            <template is="dom-repeat" items="{{_array(career.certs)}}">
+            <template is="dom-repeat" items="{{_array(career.certificates)}}">
               <tr>
                 <td>{{item.name}}</td>
                 <td>
@@ -124,7 +124,7 @@
             </thead>
             <template is="dom-repeat" items="{{_pairedArray(career.classes)}}" as="edu">
               <tr>
-                <td>{{item.name}}</td>
+                <td>{{item.value}}</td>
                 <td>
                   <input is="iron-input"></iron-input>
                 </td>
@@ -133,9 +133,9 @@
             <thead>
               <th colspan="2">Participating in these related activites:</th>
             </thead>
-            <template is="dom-repeat" items="{{career.activities}}">
+            <template is="dom-repeat" items="{{_pairedArray(career.activities)}}">
               <tr>
-                <td>{{item.name}}</td>
+                <td>{{item.value}}</td>
                 <td>
                   <input is="iron-input"></iron-input>
                 </td>
@@ -183,29 +183,54 @@
           type:Number,
           value:0
         },
+        careers:{
+          type:Array
+        },
         career:{
           type:Array,
           computed:'_getCareer(selected,careers)'
-        }
+        },
       },
 
       _getCareer:function(selected,careers){
+        console.log(selected);
         var career = careers[selected];
         return career;
       },
 
+      _getFavs:function(list){
+        var array = [];
+        $.each(list,function(i, el) {
+          if(el.fav){
+            array.push(el);
+          }
+        });
+        this.set('careers',array);
+        return array;
+      },
+
       _array:function(obj){
-        var arr = $.map(obj, function(el) { return el });
-        return arr;
+        if(!obj){
+          return false;
+        }
+        else{
+          var arr = $.map(obj, function(el) { return el });
+          return arr;
+        }
       },
 
       _pairedArray:function(obj){
-        return Object.keys(obj).map(function(key) {
-                return {
-                    key: key,
-                    value: obj[key]
-                };
-            });
+        if(!obj){
+          return false;
+        }
+        else{
+          return Object.keys(obj).map(function(key) {
+                  return {
+                      key: key,
+                      value: obj[key]
+                  };
+              });
+        }
       },
     });
   })();

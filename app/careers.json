@@ -1,227 +1,270 @@
-[{
-		"name":"Career Name",
-		"desc":"Career Desc",
-		"url":"http://linktocareer.com",
-		"programs":{
-			"0":{
-				"school":"school name",
-				"name":"program name",
-				"url":"http://linktoprograminfo.com"
-			},
-			"1":{
-				"school":"another school name"
-			}
+[
+{
+	"fav":true,
+	"name":"Nurse Practitioner",
+	"desc":"A nurse practitioner has advanced training in diagnosing and treating illness.  They can prescribe medication, administer physical exams and interpret diagnostic tests and lab work.  Their main focus is on promoting health and wellness, as well as education and prevention.   ",
+	"url":"http://www.onetonline.org/link/summary/29-1171.00",
+	"programs":{
+		"0":{
+			"school":"Arkansas State University",
+			"name":"Nursing",
+			"url":"http://www.astate.edu/college/conhp/departments/nursing/degrees/"
 		},
-		"degrees":{
-			"AA":{
-				"name":"major name",
-				"required":true
-			},
-			"BA":{
-				"name":"major name",
-				"required":true
-			},
-			"MA":{
-				"name":"major name",
-				"required":false
-			},
-			"PhD":{
-				"name":"major name",
-				"required":false
-			}
-		},
-		"certificates":{
-			"0":{
-				"org":"organization name",
-				"name":"name of cert or license",
-				"url":"http://urltomoreinfo.com"
-			}
-		},
-		"activities":{
-			"1":"activity 1",
-			"2":"activity 2"
-		},
-		"interests":"interest code from Onet, e.g. CE",
-		"related":{
-			"number":"career name",
-			"number2":"career name"
-		},
-		"wages":{
-			"hourly":"$5.00",
-			"annual":"$35,000"
-		},
-		"trends":{
-			"growth":"growth from Onet"
+		"1":{
+			"school":"California State University, Chico",
+			"name":"Nursing",
+			"url":"http://catalog.csuchico.edu/viewer/15/NURS.html"
 		}
 	},
-	{
-		"fav":true,
-		"name":"Career Name",
-		"desc":"Career Desc",
-		"url":"http://linktocareer.com",
-		"programs":{
-			"0":{
-				"school":"school name",
-				"name":"program name",
-				"url":"http://linktoprograminfo.com"
-			},
-			"1":{
-				"school":"another school name"
-			}
+	"classes":{
+		"0":"Human Anatomy",
+		"1":"Biology",
+		"2":"Organic Chemistry",
+		"3":"Algebra"
+	},
+	"degrees":{
+		"AA":{
+			"type":"A.S.",
+			"name":"Health Science",
+			"required":true
 		},
-		"degrees":{
-			"AA":{
-				"name":"major name",
-				"required":true
-			},
-			"BA":{
-				"name":"major name",
-				"required":true
-			},
-			"MA":{
-				"name":"major name",
-				"required":false
-			},
-			"PhD":{
-				"name":"major name",
-				"required":false
-			}
+		"BA":{
+			"type":"B.S.",
+			"name":"Nursing",
+			"required":true
 		},
-		"certificates":{
-			"0":{
-				"org":"organization name",
-				"name":"name of cert or license",
-				"url":"http://urltomoreinfo.com"
-			}
-		},
-		"activities":{
-			"1":"activity 1",
-			"2":"activity 2"
-		},
-		"interests":"interest code from Onet, e.g. CE",
-		"related":{
-			"number":"career name",
-			"number2":"career name"
-		},
-		"wages":{
-			"hourly":"$5.00",
-			"annual":"$35,000"
-		},
-		"trends":{
-			"growth":"growth from Onet"
+		"MA":{
+			"type":"M.S.",
+			"name":"Nursing",
+			"required":true
 		}
 	},
-	{
-		"name":"Career Name",
-		"desc":"Career Desc",
-		"url":"http://linktocareer.com",
-		"programs":{
-			"0":{
-				"school":"school name",
-				"name":"program name",
-				"url":"http://linktoprograminfo.com"
-			},
-			"1":{
-				"school":"another school name"
-			}
-		},
-		"degrees":{
-			"AA":{
-				"name":"major name",
-				"required":true
-			},
-			"BA":{
-				"name":"major name",
-				"required":true
-			},
-			"MA":{
-				"name":"major name",
-				"required":false
-			},
-			"PhD":{
-				"name":"major name",
-				"required":false
-			}
-		},
-		"certificates":{
-			"0":{
-				"org":"organization name",
-				"name":"name of cert or license",
-				"url":"http://urltomoreinfo.com"
-			}
-		},
-		"activities":{
-			"1":"activity 1",
-			"2":"activity 2"
-		},
-		"interests":"interest code from Onet, e.g. CE",
-		"related":{
-			"number":"career name",
-			"number2":"career name"
-		},
-		"wages":{
-			"hourly":"$5.00",
-			"annual":"$35,000"
-		},
-		"trends":{
-			"growth":"growth from Onet"
+	"certificates":{
+		"0":{
+			"org":"National Council of State Boards of Nursing",
+			"name":"APRN",
+			"url":"https://www.ncsbn.org/index.htm"
 		}
 	},
-	{
-		"name":"Career Name",
-		"desc":"Career Desc",
-		"url":"http://linktocareer.com",
-		"programs":{
-			"0":{
-				"school":"school name",
-				"name":"program name",
-				"url":"http://linktoprograminfo.com"
-			},
-			"1":{
-				"school":"another school name"
-			}
-		},
-		"degrees":{
-			"AA":{
-				"type":"AA",
-				"name":"major name",
-				"required":true
-			},
-			"BA":{
-				"name":"major name",
-				"required":true
-			},
-			"MA":{
-				"name":"major name",
-				"required":false
-			},
-			"PhD":{
-				"name":"major name",
-				"required":false
-			}
-		},
-		"certificates":{
-			"0":{
-				"org":"organization name",
-				"name":"name of cert",
-				"url":"http://urltomoreinfo.com"
-			}
-		},
-		"activities":{
-			"1":"activity 1",
-			"2":"activity 2"
-		},
-		"interests":"interest code from Onet, e.g. CE",
-		"related":{
-			"number":"career name",
-			"number2":"career name"
-		},
-		"wages":{
-			"hourly":"$5.00",
-			"annual":"$35,000"
-		},
-		"trends":{
-			"growth":"growth from Onet"
-		}
+	"activities":{
+		"0":"HERO",
+		"1":"SkillsUSA"
+	},
+	"interests":"SIR",
+	"related":{
+		"0":"Nursing Instructors and Teachers, Postsecondary",
+		"1":"Physician Assistant",
+		"2":"Occupational Therapists",
+		"3":"Clinical Nurse Specialists"
+	},
+	"wages":{
+		"hourly":"$45.84",
+		"annual":"$95,350"
+	},
+	"trends":{
+		"growth":"Much faster than average (22% or higher)"
 	}
+},
+{
+	"name":"Construction Carpenter",
+	"desc":"Carpenters use hand tools and power tools to build and construct building frameworks and structures made of wood and other materials.",
+	"url":"http://www.onetonline.org/link/summary/47-2031.01",
+	"programs":{
+		"0":{
+			"school":"Saint Paul College",
+			"name":"Carpentry",
+			"url":"http://www.saintpaul.edu/programs/transconstru/Pages/Carpentry.aspx"
+		},
+		"1":{
+			"school":"Central New Mexico Community College",
+			"name":"Carpentry",
+			"url":"https://www.cnm.edu/programs-of-study/all-programs-a-z/carpentry"
+		}
+	},
+	"degrees":{
+		"GED":{
+			"type":"GED",
+			"name":"/ High School Diploma",
+			"required":true
+		},
+		"AA":{
+			"type":"A.A.",
+			"name":"Carpentry",
+			"required":false
+		}
+	},
+	"certificates":{},
+	"activities":{
+		"0":"SkillsUSA",
+		"1":"Habitat for Humanity"
+	},
+	"interests":"RCI",
+	"related":{
+		"0":"Brickmasons and Blockmasons",
+		"1":"Rough Carpenters",
+		"2":"Cement Masons and Concrete Finishers",
+		"3":"Terrazzo Workers and Finishers"
+	},
+	"wages":{
+		"hourly":"$19.63",
+		"annual":"$40,820"
+	},
+	"trends":{
+		"growth":"Much faster than average (22% or higher) "
+	}
+},
+{
+	"name":"Electrician",
+	"desc":"Electricians install, design layouts, and repair electrical wiring, equipment and fixtures based on job specifications and applicable codes.  May test electrical systems or continuity of circuits in electrical wiring and equipment.",
+	"url":"http://www.careerinfonet.org/occ_rep.asp?nodeid=2&optstatus=000110111&next=occ_rep&jobfam=47&soccode=472111&stfips=&level=&id=1&ES=Y&EST=Electrician",
+	"programs":{
+		"0":{
+			"school":"New England Institute of Technology",
+			"name":"Electrical Technology",
+			"url":"http://www.neit.edu/Programs/Associate-Degree-Programs/Building-Technologies/Electrical-Technology?srch=electrician"
+		},
+		"1":{
+			"school":"Eastern Arizona College",
+			"name":"Electrical and Instrumentation Programs",
+			"url":"http://www.eac.edu/Academics/Programs_of_Study/EI/"
+		}
+	},
+	"degrees":{
+		"GED":{
+			"type":"GED",
+			"name":"/ High School Diploma",
+			"required":true
+		},
+		"AA":{
+			"type":"A.A.",
+			"name":"Electrician",
+			"required":false
+		}
+	},
+	"certificates":{
+	},
+	"activities":{
+		"0":"SkillsUSA",
+		"1":"Robotics"
+	},
+	"interests":"RIC",
+	"related":{
+		"0":"Avionics Technicians",
+		"1":"Computer, Automated Teller, and Office Machine Repairers",
+		"2":"Electrical and Electronic Equipment Assemblers",
+		"3":"Electrical and Electronics Drafters"
+	},
+	"wages":{
+		"hourly":"$24.57",
+		"annual":"$51,110"
+	},
+	"trends":{
+		"growth":"Faster than average (15% to 21%)"
+	}
+},
+{
+	"name":"Chef",
+	"desc":"Chefs direct and engage in the preparation, seasoning, and cooking of food.  Ensure the quality of prepared food meets standards and expectations. Supervise and coordinate the work of other cooks participating in food preparation.",
+	"url":"http://www.careerinfonet.org/occ_rep.asp?nodeid=2&optstatus=000110111&next=occ_rep&jobfam=35&soccode=351011&stfips=&level=&id=1&ES=Y&EST=Chef",
+	"programs":{
+		"0":{
+			"school":"Bellingham Technical College",
+			"name":"Culinary Arts",
+			"url":"http://www.btc.edu/DegreesClasses/Programs/ProgramDetails.aspx?ID=16&tab=tab2"
+		},
+		"1":{
+			"school":"Sullivan University",
+			"name":"Culinary Arts",
+			"url":"http://sullivan.edu/national-center-for-hospitality-studies/associate-of-science-in-culinary-arts/"	
+		}
+	},
+	"degrees":{
+		"AA":{
+			"type":"A.A.",
+			"name":"Culinary Arts",
+			"required":true
+		}
+	},
+	"certificates":{
+
+	},
+	"activities":{
+		"0":"SkillsUSA",
+		"1":"Work at Local Restaurant"
+	},
+	"interests":"ERA",
+	"related":{
+		"0":"Cooks, Fast Food",
+		"1":"Dietetic Technicians",
+		"2":"First-Line Supervisors of Food Preparation and Serving Workers"
+	},
+	"wages":{
+		"hourly":"$21.01",
+		"annual":"$41,610"
+	},
+	"trends":{
+		"growth":"Slower than average (3% to 7%)"
+	}
+},
+{
+	"fav":true,
+	"name":"Rehabilitation Counselor",
+	"desc":"Rehabilitation counselors assist individuals with disabilities in maximizing their independent living skills and obtaining employment through counseling, service coordination, and case management.",
+	"url":"http://www.careerinfonet.org/occ_rep.asp?nodeid=2&optstatus=000110111&next=occ_rep&jobfam=21&soccode=211015&stfips=&level=&id=1&ES=Y&EST=vocational+rehabilitation+counselor",
+	"programs":{
+		"0":{
+			"school":"University of Wisconsin- Stout",
+			"name":"Vocational Rehabilitation",
+			"url":"http://www.uwstout.edu/programs/msvr/"
+		},
+		"1":{
+			"school":"University of Northern Colorado",
+			"name":"Rehabilitation Counseling",
+			"url":"http://www.unco.edu/nhs/rehabilitation/MARehabCounseling.htm"
+
+		}
+	},
+	"degrees":{
+		"BA":{
+			"type":"B.A.",
+			"name":"Vocational Rehabilitation",
+			"required":true
+		},
+		"MA":{
+			"type":"M.A.",
+			"name":"Rehabilitation Counseling",
+			"required":true
+		}
+	},
+	"certificates":{
+		"0":{
+			"org":"Commission on Rehabilitation Counselor Certification",
+			"name":"Certified Rehabilitation Counselor",
+			"url":"https://www.crccertification.com/"
+		}
+	},
+	"activities":{
+		"0":"Volunteer with Special Olympics",
+		"1":"activity 2"
+	},
+	"classes":{
+		"0":"Psychology",
+		"1":"Expository Writing"
+	},
+	"interests":"SI",
+	"related":{
+		"0":"Career Counselor",
+		"1":"Substance Abuse and Behavioral Disorder Counselors",
+		"2":"Child, Family, and School Social Workers",
+		"3":"Probation Officers and Correctional Treatment Specialists"
+	},
+	"wages":{
+		"hourly":"$16.53",
+		"annual":"$34,380"
+	},
+	"trends":{
+		"growth":"Faster than average (15% to 21%)"
+	}
+}
 ]
+

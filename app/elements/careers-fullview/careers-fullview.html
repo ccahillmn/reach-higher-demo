@@ -75,8 +75,8 @@
             <div class="col-md-6 col-lg-4">
               <h3>Earning Potential</h3>
               <ul>
-                <li>{{career.wages.hourly}} / hour</li>
-                <li>{{career.wages.annual}} annually</li>
+                <li><span>{{career.wages.hourly}}</span> / hour</li>
+                <li><span>{{career.wages.annual}}</span> annually</li>
               </ul>
             </div>
             <div class="col-md-6 col-md-4">
@@ -135,6 +135,7 @@
 
       _close:function(){
         this.fire('close');
+        this.set('career',null)
       },
 
       _req:function(req){
