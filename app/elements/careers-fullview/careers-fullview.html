@@ -54,7 +54,7 @@
             <p>{{career.desc}}</p>
           </div>
           <div class="row">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6">
               <h3>Education</h3>
               <ul>
                 <template is="dom-repeat" items="[[_array(career.degrees)]]" as="item">
@@ -62,7 +62,7 @@
                 </template>
               </ul>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6">
               <h3>Certifications / Licenses</h3>
               <ul>
                 <template is="dom-repeat" items="[[_array(career.certificates)]]">
@@ -72,14 +72,14 @@
             </div>
           </div><!--Row 1-->
           <div class="row">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6">
               <h3>Earning Potential</h3>
               <ul>
                 <li><span>{{career.wages.hourly}}</span> / hour</li>
                 <li><span>{{career.wages.annual}}</span> annually</li>
               </ul>
             </div>
-            <div class="col-md-6 col-md-4">
+            <div class="col-md-6">
               <h3>Growth Trend</h3>
               <p>{{career.trends.growth}}</p>
             </div>

@@ -12,7 +12,9 @@ app.user = {
 var scroll;
 var firstRun = true;
 
+
 (function(document) {
+
   'use strict';
 
 	$(window).resize(function() {

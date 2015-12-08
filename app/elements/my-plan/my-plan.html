@@ -63,7 +63,7 @@
     </style>
     <iron-ajax
       auto
-      url="/careers.json"
+      url="../careers.json"
       handle-as="json"
       last-response="{{list}}">
     </iron-ajax>
@@ -108,7 +108,7 @@
               <tr>
                 <td>{{item.name}}</td>
                 <td>
-                  <input name="{{cert}}" is="iron-input"></iron-input>
+                  <input is="iron-input"></iron-input>
                 </td>
               </tr>
             </template>
@@ -122,7 +122,7 @@
             <thead>
               <th colspan="2">Taking these related classes:</th>
             </thead>
-            <template is="dom-repeat" items="{{_pairedArray(career.classes)}}" as="edu">
+            <template is="dom-repeat" items="{{_pairedArray(career.classes)}}">
               <tr>
                 <td>{{item.value}}</td>
                 <td>
@@ -180,7 +180,7 @@
           type:Array
         },
         selected:{
-          value:"0"
+          value:0
         },
         careers:{
           type:Array
@@ -192,7 +192,6 @@
       },
 
       _getCareer:function(selected,careers){
-        console.log(selected);
         var career = careers[selected];
         return career;
       },

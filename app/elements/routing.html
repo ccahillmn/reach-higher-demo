@@ -7,11 +7,18 @@
     });
 
     page('/:route', function (data) {
+
       // Set view via route
       var route = data.params.route;
+      console.log(route);
+
+      if(route == 'reachhigher'){
+        page.redirect('/dash');
+        return false;
+      }
+      
       if(!app.route){
         app.route = route;
-        return false;
       }
       else if(app.route != route){
         app.route = route;
