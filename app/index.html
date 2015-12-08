@@ -138,7 +138,7 @@
 
             <!-- User's public profile & settings -->
             <section data-route="profile">
-              <h2>{{user.firstName}} {{user.lastName}}</h2>
+              <profile-view user="{{user}}"></profile-view>
             </section>
 
             <!-- User's education & career plan -->
@@ -159,7 +159,7 @@
 
             <!-- Personal Development Resources -->
             <section data-route="resources">
-              <h2>Resources</h2>
+              <resources-view></resources-view>
             </section>
 
             <!-- Private messages between user & organizations -->

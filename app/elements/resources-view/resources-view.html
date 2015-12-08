@@ -1,0 +1,102 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="resources-view">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-card{
+        width:100%;
+        margin:12px 0;
+        --paper-card-header-text:{
+          font-family: Impact, sans-serif;
+          font-size: 2em;
+          letter-spacing: 1px;
+          text-shadow:
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 15px rgba(0,0,0,.2),
+               0 20px 25px rgba(0,0,0,.10);
+        }
+        --paper-card-header-color:#fff;
+      }
+      paper-card.success{
+        --paper-card-header:{
+          background-color: var(--success-color);
+        }
+      }
+      paper-card.info{
+        --paper-card-header:{
+          background-color: var(--default-primary-color);
+        }
+      }
+      paper-card.warning{
+        --paper-card-header:{
+          background-color: var(--warning-color);
+        }
+      }
+      a{
+        color:var(--default-primary-color);
+      }
+      li{
+        margin-bottom:4px;
+      }
+    </style>
+    <h2>Resources</h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+          <paper-card heading="Professional Development" class="info">
+            <div class="card-content">
+              <ul>
+                <li><a href="http://www.iseek.org/careers/employability-skills.html">iSEEK: Employability Skills</a></li>
+                <li><a href="http://www.kent.ac.uk/careers/sk/top-ten-skills.htm">Top Ten Employability Skills (University of Kent)</a></li>
+                <li><a href="http://www.youthcentral.vic.gov.au/jobs-careers/planning-your-career/employability-skills">Employability Skills by Youth Central</a></li>
+                <li><a href="http://www.monash.edu.au/students/career-connect/employability/employability-skills.html">Employability Skills by Monash University</a></li>
+              </ul>
+            </div>
+          </paper-card>
+        </div>
+        <div class="col-lg-4">
+          <paper-card heading="Students with Disabilities" class="info">
+            <div class="card-content">
+              <ul>
+                <li><a href="http://www2.ed.gov/about/offices/list/ocr/504faq.html">Protecting Students with Disabilities</a> by U.S. Department of Education</li>
+                <li><a href="http://ada.gov">Information and Technical Assistance on the Americans with Disabilites Act</a></li>
+                <li><a href="http://www.dol.gov/dol/topic/disability/ada.htm">Resources for Students with Disabilities</a> by the U.S. Department of Labor</li>
+                <li><a href="http://www.bestcolleges.com/resources/disabled-students/">College Resources for Students with Disabilites</a></li>
+              </ul>
+            </div>
+          </paper-card>
+        </div>
+        <div class="col-lg-4">
+          <paper-card heading="English Language Learners" class="info">
+            <div class="card-content">
+              <ul>
+                <li><a href="http://www2.ed.gov/about/offices/list/ocr/ellresources.html">Schools' Civil Rights Obligations to English Learner Students and Limited English Proficient Parents</li>
+                <li><a href="https://owl.english.purdue.edu/owl/section/5/25/">Writing Resources for Students with Disabilities</a></li>
+              </ul>
+            </div>
+          </paper-card>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'resources-view',
+
+      properties: {
+
+      }
+    });
+  })();
+  </script>
+</dom-module>

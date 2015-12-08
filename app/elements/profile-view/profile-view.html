@@ -1,0 +1,77 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="profile-view">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      img{
+        float:left;
+        margin-right:24px;
+      }
+      div.col-lg-12{
+        clear:left;
+      }
+      h2,span.contact{
+        padding:8px 0;
+      }
+      div:first-child{
+        border-bottom:1px solid rgba(0,0,0,0.12);
+        padding-bottom:24px;
+      }
+    </style>
+    <div class="container-fluid">
+      <p class="well">Utilize this profile to provide prospective schools and employers with the highlights of your academic and professional experience. If you use LinkedIn, <a>import your content</a>.</p>
+      <div class="row">
+        <div class="col-lg-12">
+          <img src="{{user.pic}}" class="thumbnail" width="100px" height="auto">
+          <h2>{{user.firstName}} {{user.lastName}}</h2>
+          <span class="contact">kbhand007@myschool.org</span>
+        </div>
+        <div class="col-lg-12">
+          <h3>Summary</h3>
+          <p>I'm a senior in high school interested in pursuing Computer Science. I'd like to combine my technology skills with my interests in other cultures to work for a internation non-profit that improves the lives the women. I am currently interning for a local software development company to learn more about web development. I also volunteer with many organizations through my chruch, such as Habitat for Humanity.</p>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h3>Activities</h3>
+          <ul>
+            <li>DECA, State President (2015-present)</li>
+            <li>Wayzata Varsity Soccer (2012-present)</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h3>Language</h3>
+          <h4>Spanish</h4>
+            <ul>
+              <li>Speaking: proficient</li>
+              <li>Writing: elementary</li>
+            </ul>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h3>Interests</h3>
+          <ul>
+            <li>World Cultures</li>
+            <li>Computer Science</li>
+          </ul>
+      </div>
+    </div>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'profile-view',
+
+      properties: {
+        foo: {
+          type: String,
+          value: 'profile-view',
+          notify: true
+        }
+      }
+    });
+  })();
+  </script>
+</dom-module>
