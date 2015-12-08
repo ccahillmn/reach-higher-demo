@@ -7,10 +7,6 @@
         display: block;
       }
       form{
-        display: flex;
-        justify-content:flex-start;
-        align-items:bottom;
-        flex-wrap:wrap;
         margin:20px 0;
         padding:0 20px 20px;
         background-color: rgba(0,0,0,0.03);;
@@ -18,38 +14,48 @@
         border-radius: 5px;
       }
       paper-input{
-        flex-grow:2;
-        flex-basis:500px;
+        width:100%;
       }
       paper-checkbox{
-        margin-top:30px;
+        margin-top:46px;
+        width:100%;
       }
       paper-dropdown-menu{
-        flex-grow:2;
-        margin-right:20px;
+        width:100%;
+        margin-top:16px;
       }
       a{
         cursor: pointer;
       }
     </style>
-    <p class="center">Browse the database below or <a on-tap="_open">personalize your results</a> based on your interests.</p>
-    <form is="iron-form">
-      <paper-input class="block" label="Search Careers">
-        <paper-icon-button suffix icon="search"></paper-icon-button>
-      </paper-input>
-      <paper-dropdown-menu label="Sort by...">
-        <paper-menu class="dropdown-content" selected="{{sort}}" attr-for-selected="value">
-          <paper-item>Career Name</paper-item>
-          <paper-item>Avergage Salary</paper-item>
-          <paper-item>Available Jobs - Near Me</paper-item>
-          <paper-item>Available Jobs - Total</paper-item>
-        </paper-menu>
-      </paper-dropdown-menu>
-      <paper-checkbox>Show only my favorites</paper-checkbox>
-    </form>
-    <template is="dom-repeat" items="[[careers]]" as="item">
-      <career-item on-item-click="_selected" item="[[item]]" fav="{{item.fav}}"></career-item>
-    </template>
+    <div class="container-fluid">
+      <p class="center">Browse the database below or <a on-tap="_open">personalize your results</a> based on your interests.</p>
+      <form is="iron-form">
+        <div class="row">
+          <div class="col-lg-6">
+          <paper-input class="block" label="Search Careers">
+            <paper-icon-button suffix icon="search"></paper-icon-button>
+          </paper-input>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <paper-dropdown-menu label="Sort by...">
+              <paper-menu class="dropdown-content" selected="{{sort}}" attr-for-selected="value">
+                <paper-item>Career Name</paper-item>
+                <paper-item>Avergage Salary</paper-item>
+                <paper-item>Available Jobs - Near Me</paper-item>
+                <paper-item>Available Jobs - Total</paper-item>
+              </paper-menu>
+            </paper-dropdown-menu>
+          </div>
+          <div class="col-lg-3  col-md-6">
+           <paper-checkbox>Show only my favorites</paper-checkbox>
+          </div>
+        </div>
+      </form>
+      <template is="dom-repeat" items="[[careers]]" as="item">
+        <career-item on-item-click="_selected" item="[[item]]" fav="{{item.fav}}"></career-item>
+      </template>
+    </div>
     <iron-ajax
       auto
       url="/careers.json"
