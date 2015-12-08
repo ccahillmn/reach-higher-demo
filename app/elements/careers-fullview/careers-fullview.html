@@ -39,7 +39,8 @@
       .row{
         border-bottom:1px solid rgba(0,0,0,0.12);
       }
-
+      .link{color:var(--accent-color);}
+      .link,paper-item{cursor:pointer;}
     </style>
     <paper-card>
       <div>
@@ -64,21 +65,33 @@
             <div class="col-md-6 col-lg-4">
               <h3>Certifications / Licenses</h3>
               <ul>
-                <template is="dom-repeat" items="{{_array(career.certificates)}}">
+                <template is="dom-repeat" items="[[_array(career.certificates)]]">
                   <li>{{item.name}} by ({{item.org}}) <a href="{{item.url}}"><iron-icon icon="launch"></iron-icon></a></li>
                 </template>
               </ul>
             </div>
           </div><!--Row 1-->
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6 col-lg-4">
               <h3>Earning Potential</h3>
               <ul>
                 <li>{{career.wages.hourly}} / hour</li>
                 <li>{{career.wages.annual}} annually</li>
               </ul>
             </div>
-          </div><!--Row 2-->
+            <div class="col-md-6 col-md-4">
+              <h3>Growth Trend</h3>
+              <p>{{career.trends.growth}}</p>
+            </div>
+          </div><!-- Row 2 -->
+          <div class="row">
+            <h3>Related Careers</h3>
+              <ul on-tap="_goto">
+                <template is="dom-repeat" items="[[_pairedArray(career.related)]]">
+                  <li class="link" id="{{item.key}}">{{item.value}}</li>
+                </template>
+              </ul>
+          </div><!-- Row 3-->
         </div>
       </div>
       <div>
@@ -135,6 +148,15 @@
         return arr;
       },
 
+      _pairedArray:function(obj){
+        return Object.keys(obj).map(function(key) {
+                return {
+                    key: key,
+                    value: obj[key]
+                };
+            });
+      },
+
       _toggle:function(fav){
         if(fav){
           return 'favorite'
@@ -143,6 +165,22 @@
           return null
         }
       },
+
+      _goto:function(e){
+        var item = e.target;
+        var id = item.id;
+        $.getJSON( "/careers.json", function( data ) {
+          app.career = data[id];
+          if(app.career){
+            app.view = 1;
+          }
+          else{
+            $('#mainContainer').animate({scrollTop: scroll},500);
+            app.view = 0;
+            app.notification = "Whoops! We can find that career - check out some of the awesome ones below."
+          }
+        });
+      }
 
     });
   })();

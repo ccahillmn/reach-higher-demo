@@ -36,6 +36,13 @@
           background: #fff; 
           padding: 0 15px; 
       }
+      div.alert{
+        padding:16px;
+      }
+      paper-icon-button{
+        float:right;
+        margin:0;
+      }
       @media (max-width: 700px) {
         paper-dialog{
           width:350px;
@@ -43,7 +50,11 @@
       }
     </style>
 
-    <neon-animated-pages id="pages" selected="0" entry-animation="{{entry}}" exit-animation="{{exit}}">
+    <div hidden="{{!notification}}"class="alert alert-danger alert-dismissible" role="alert">
+      <paper-icon-button icon="close" on-tap="_dismiss"></paper-icon-button>
+      {{notification}}
+    </div>
+    <neon-animated-pages id="pages" selected="{{view}}" entry-animation="{{entry}}" exit-animation="{{exit}}">
       <careers-list user="{{userId}}" on-item-click="_expand"></careers-list>
       <careers-fullview on-close="_close" career="{{career}}"></careers-fullview>
     </neon-animated-pages>
@@ -76,6 +87,13 @@
         },
         exit:{
           value:'fade-out-animation'
+        },
+        notification:{
+          type:String,
+          value:null
+        },
+        view:{
+          value:0
         }
       },
 
@@ -103,6 +121,10 @@
         var prev = this.prev;
         $('#mainContainer').animate({scrollTop: prev},500);
         this.$.pages.selected = 0;
+      },
+
+      _dismiss:function(){
+        this.set('notification',null);
       },
 
       _personalize:function(){

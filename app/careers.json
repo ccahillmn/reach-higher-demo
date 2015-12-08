@@ -208,8 +208,8 @@
 			}
 		},
 		"activities":{
-			"1":"activity 1",
-			"2":"activity 2"
+			"activity 1",
+			"activity 2"
 		},
 		"interests":"interest code from Onet, e.g. CE",
 		"related":{

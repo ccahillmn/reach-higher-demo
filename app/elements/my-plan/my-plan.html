@@ -61,6 +61,13 @@
         margin:8px .57em;
       }
     </style>
+    <iron-ajax
+      auto
+      url="/careers.json"
+      handle-as="json"
+      last-response="{{careers}}">
+    </iron-ajax>
+
     <h2>My Plan for Success</h2>
       <form is="iron-form">
         <!-- Desired Career -->
@@ -69,9 +76,9 @@
         <!-- Prepolate from favorited careers -->
           <label for="career">I want to be: </label>
           <paper-dropdown-menu label="">
-            <paper-menu class="dropdown-content" selected="{{career}}" attr-for-selected="value">
-              <template is="dom-repeat" items="{{careers}}">
-                <paper-item value="{{item}}">{{item}}</paper-item>
+            <paper-menu class="dropdown-content" selected="{{selected}}" attr-for-selected="value">
+              <template is="dom-repeat" items="{{_array(careers)}}">
+                <paper-item value="{{index}}">{{item.name}}</paper-item>
               </template>
             </paper-menu>
           </paper-dropdown-menu>
@@ -79,15 +86,15 @@
 
         <h3>Education Requirements</h3>
         <fieldset>
-          <label class="header">In order to be a <strong>{{career}}</strong>, I will need:</label>
+          <label class="header">In order to be a <strong>{{career.name}}</strong>, I will need:</label>
           <table>
             <thead>
               <th>Education</th>
               <th>My plan for completion</th>
             </thead>
-            <template is="dom-repeat" items="{{education}}" as="edu">
+            <template is="dom-repeat" items="{{_array(career.degrees)}}">
               <tr>
-                <td>{{edu}}</td>
+                <td>{{item.name}}</td>
                 <td>
                   <input is="iron-input" bind-value="Attend X university"></iron-input>
                 </td>
@@ -97,9 +104,9 @@
               <th>Certifications / Licenses</th>
               <th></th>
             </thead>
-            <template is="dom-repeat" items="{{certs}}" as="cert">
+            <template is="dom-repeat" items="{{_array(career.certs)}}">
               <tr>
-                <td>{{cert}}</td>
+                <td>{{item.name}}</td>
                 <td>
                   <input name="{{cert}}" is="iron-input"></iron-input>
                 </td>
@@ -115,22 +122,22 @@
             <thead>
               <th colspan="2">Taking these related classes:</th>
             </thead>
-            <template is="dom-repeat" items="{{education}}" as="edu">
+            <template is="dom-repeat" items="{{_pairedArray(career.classes)}}" as="edu">
               <tr>
-                <td>{{edu}}</td>
+                <td>{{item.name}}</td>
                 <td>
-                  <input is="iron-input" bind-value="Attend X university"></iron-input>
+                  <input is="iron-input"></iron-input>
                 </td>
               </tr>
             </template>
             <thead>
               <th colspan="2">Participating in these related activites:</th>
             </thead>
-            <template is="dom-repeat" items="{{certs}}" as="cert">
+            <template is="dom-repeat" items="{{career.activities}}">
               <tr>
-                <td>{{cert}}</td>
+                <td>{{item.name}}</td>
                 <td>
-                  <input name="{{cert}}" is="iron-input"></iron-input>
+                  <input is="iron-input"></iron-input>
                 </td>
               </tr>
             </template>
@@ -159,6 +166,7 @@
         <paper-button>Load</paper-button>
       </div>
     </paper-card>
+
   </template>
   <script>
   (function() {
@@ -171,43 +179,34 @@
         user:{
           type:Array
         },
-        careers:{
-          type:Array,
-          computed:'_getCareers(user)'
+        selected:{
+          type:Number,
+          value:0
         },
         career:{
-          type:String,
-          value:'Career 1'
+          type:Array,
+          computed:'_getCareer(selected,careers)'
         }
       },
 
-      observers:[
-        '_getEducation(career)',
-        '_getCerts(career)'
-      ],
-
-      // Fetch user's favorite careers
-      _getCareers:function(user){
-        return ["Career 1","Career 2","Career 3"];
+      _getCareer:function(selected,careers){
+        var career = careers[selected];
+        return career;
       },
 
-      // Education requirements base on id of chosen career
-      _getEducation:function(career){
-        var education = [];
-        if(career){
-          education = ['Undergraduate Degree (required)','Master Degree (recommended)']
-        }
-        this.set('education',education);
+      _array:function(obj){
+        var arr = $.map(obj, function(el) { return el });
+        return arr;
       },
 
-      // Certification / licenses required for chosen career
-      _getCerts:function(career){
-        var certs = [];
-        if(career){
-          certs = ['National License','State License']
-        }
-        this.set('certs',certs);
-      }
+      _pairedArray:function(obj){
+        return Object.keys(obj).map(function(key) {
+                return {
+                    key: key,
+                    value: obj[key]
+                };
+            });
+      },
     });
   })();
   </script>
